@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <title>RPS</title>
+<title>Rock, Paper, Scissors</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{{url_for('static', filename='layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
-    <div class="navbar">
-        <a href="/">Home</a>
-    </div>
+<body id="top">
 
-    <div class="main-content container">
-        {% block maincontent %}{% endblock %}
-    </div>
+<!-- Top Background Image Wrapper -->
+<div class="bgded" style="background-image:url('{{url_for('static', filename='images/demo/backgrounds/01.png')}}');"> 
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left"> 
+        <h1 class="logoname"><a href="/home">Rock, <span>Paper, </span> Scissors</a></h1>
+      </div>
+      <nav id="mainav" class="fl_right"> 
+        <ul class="clear">
+          <li><a href="/home">Home</a></li>
+            <li><a href="/play">Play</a></li>
+          <li><a class="drop" href="#">Extra</a>
+            <ul>
+              <li><a href="#">Extra</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  {% block pageintro %}{% endblock %}
+    
+</div>
+<!-- End Top Background Image Wrapper -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    {% block maincontent %}{% endblock %}
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a target="_blank" href="http://jordan-ireland.com">Jordan Ireland</a> & <a href="http://johnjmorrison.com" target="_blank">John Morrison</a></p>
+  </div>
+</div>
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{{url_for('static', filename='layout/scripts/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='layout/scripts/jquery.backtotop.js')}}"></script>
+<script src="{{url_for('static', filename='layout/scripts/jquery.mobilemenu.js')}}"></script>
 </body>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>

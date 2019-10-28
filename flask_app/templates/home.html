@@ -1,11 +1,41 @@
 {% extends 'layout.html' %}
 
+{% block pageintro %}
+<div id="pageintro" class="hoc clear"> 
+    <article>
+      <p>Placeholder Title</p>
+      <h3 class="heading">Placeholder Header</h3>
+      <footer>
+        <ul class="nospace inline pushright">
+          <li><a class="btn" href="play">Play</a></li>
+          <li><a class="btn inverse" href="#">About</a></li>
+        </ul>
+      </footer>
+    </article>
+  </div>
+{% endblock %}
+
 {% block maincontent %}
-
-<div class="row">
-    <div class="col-1">test</div>
-    <div class="col-10">{{data}}</div>
-    <div class="col-1">test</div>
-</div>
-
+<section id="introblocks" class="row3 inspace-30 clear">
+      <div class="one_half first">
+        <h6 class="heading">Mus sodales nulla integer</h6>
+        <p class="heading font-x3">Auctor diam sed non sapien in risus rhoncus egestas mauris rhoncus mi at odio in luctus turpis quis dignissim.</p>
+      </div>
+      <div class="one_half">
+        <ul class="nospace group">
+          <li class="one_half first btmspace-30">
+            <h6 class="heading">Interdum</h6>
+            <p>Placerat mi ipsum ornare dui id varius tortor est et urna vivamus commodo justo quis erat etiam lacus leo interdum non volutpat.</p>
+          </li>
+          <li class="one_half btmspace-30">
+            <h6 class="heading">Ullamcorper</h6>
+            <p>In sagittis vel erat donec congue pede eu lacus aliquam sodales felis nec libero mollis porttitor nulla adipiscing orci ac quam.</p>
+          </li>
+          <li class="one_half first">
+            <h6 class="heading">Accumsan</h6>
+            <p>Suspendisse elit praesent hendrerit lacus a condimentum scelerisque augue mi ultrices nunc vitae posuere orci dui quisque.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 {% endblock %}
