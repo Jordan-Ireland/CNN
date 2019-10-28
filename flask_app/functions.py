@@ -15,29 +15,26 @@ def image_input():
     return img
 
 
+score = {'user':0, 'comp':0}
+
+hands = {1:'Rock', 2:'Paper', 3:'Scissors'}
+    
 def rps(user_choice, computer_choice):
-
-    score = {'user':0, 'comp':0}
-
-    hands = {1:'Rock', 2:'Paper', 3:'Scissors'}
-
     # Print the choices
     user_hand = hands[user_choice]
     computer_hand = hands[computer_choice]
 
     # While loop to play the game, breaks after one round currently
-    while True:
 
-        if user_choice == computer_choice:
-            score['user'] += 1
-            score['comp'] += 1
-        elif ((user_choice == 1 and computer_choice == 3) or
-              (user_choice == 2 and computer_choice == 1) or
-              (user_choice == 3 and computer_choice == 2)):
-            score['user'] += 1
-        else:
-            score['comp'] += 1
-        break
+    if user_choice == computer_choice:
+        score['user'] += 1
+        score['comp'] += 1
+    elif ((user_choice == 1 and computer_choice == 3) or
+            (user_choice == 2 and computer_choice == 1) or
+            (user_choice == 3 and computer_choice == 2)):
+        score['user'] += 1
+    else:
+        score['comp'] += 1
 
     return score
 
