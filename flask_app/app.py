@@ -13,17 +13,17 @@ def home():
     return render_template('home.html')
 
 @app.route('/play')
-def play():
-    return render_template('play.html')
-    
-
+@app.route('/play', methods=['POST'])
 # Post method to run prediction model and return what each person/comp chose and who won
-@app.route('/predict/', methods=['POST'])
-def predict():
-    user_image = image.load_img(request.files['file'], target_size = (150,150))
-    user_image = image.img_to_array(user_image)
-    user_image = np.expand_dims(user_image, axis = 0)
-    return render_template('play.html', predict=predict_winner(user_image))
+def play():
+    if(request.method == 'POST'):
+        user_image = image.load_img(request.files['file'], target_size = (150,150))
+        user_image = image.img_to_array(user_image)
+        user_image = np.expand_dims(user_image, axis = 0)
+        return render_template('play.html', predict=predict_winner(user_image))
+    else:
+        return render_template('play.html')
+    
 
 if __name__ == '__main__':
     app.run()
