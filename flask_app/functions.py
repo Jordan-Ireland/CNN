@@ -16,6 +16,8 @@ def image_input():
 
 
 score = {'user':0, 'comp':0}
+past_choices = []
+past_computer = []
 
 hands = {1:'Rock', 2:'Paper', 3:'Scissors'}
     
@@ -36,7 +38,9 @@ def rps(user_choice, computer_choice):
     else:
         score['comp'] += 1
 
-    return score
+    results = {'past_choices': past_choices, 'score': score, 'past_computer': past_computer}
+    
+    return results
 
 
 # Load in the CNN model
@@ -68,11 +72,15 @@ def predict_winner(user_image):
         user_choice = 2
     elif result[0][1] == 1:
         user_choice = 1
-    elif result[0][1] == 1:
+    elif result[0][2] == 1:
         user_choice = 3
+        
+    past_choices.append(hands[user_choice])
 
     # Have computer choose a choice
     computer_choice = random.randint(1,3)
+    
+    past_computer.append(hands[computer_choice])
 
     # Run the rock paper scissors game
     return rps(user_choice, computer_choice)

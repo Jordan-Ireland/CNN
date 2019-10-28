@@ -22,8 +22,7 @@ def play():
         user_image = np.expand_dims(user_image, axis = 0)
         return render_template('play.html', predict=predict_winner(user_image))
     else:
-        return render_template('play.html')
-    
+        return render_template('play.html', predict=None)
 
 if __name__ == '__main__':
     app.run()

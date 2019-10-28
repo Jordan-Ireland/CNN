@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block maincontent %}
-<section id="introblocks" class="row3 inspace-30 clear" style="height:500px">
+<section id="introblocks" class="row3 inspace-30 clear">
       <div>
         <ul class="nospace group">
           <li class="one_half first btmspace-30">
@@ -25,11 +25,24 @@
     <div>
         <ul class="nospace group">
             <li>
-            <h6 class="heading">Ready! Set! GO!</h6>
-            <form action='/play' method="post" enctype=multipart/form-data>
-                    <input type="file" id="file" name="file" />
-                <input type="submit" id="submit" />
+                <h6 class="heading">Ready! Set! GO!</h6>
+                <form action='/play' method="post" enctype=multipart/form-data style="margin:0 25%;">
+                    <input type="file" id="file" name="file" style="margin:0 25% 25px;" />
+                    <input class="btn" type="submit" id="submit" style="width:100%;" />
                 </form>
+            </li>
+            <li>
+                <textarea style="width:60%; margin:50px 20% 0; height: 250px;" readonly>
+###------------------------------###
+                    
+{% if predict != None %}YOU {{predict['score']['user']}}: COMP {{predict['score']['comp']}} {% else %}YOU 0 : COMP 0 {% endif %}
+                    
+###------------------------------###
+                    
+{% if predict != None %}{% for index in range(0,predict['past_choices']| length) %}You picked {{predict['past_choices'][index]}} || Computer picked {{predict['past_computer'][index]}}
+{% endfor %}{% endif %}
+                    
+                </textarea>
             </li>
         </ul>
     </div>
