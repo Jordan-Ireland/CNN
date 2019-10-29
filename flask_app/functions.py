@@ -35,11 +35,8 @@ def predict_winner(user_image, model):
 
     import random
 
-    # Compile the model
-    model.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
-
     # Pull in the image and the model's prediction of it
-    result = loaded_model.predict(user_image)
+    result = model.predict(user_image)
     user_choice = 0
 
     # Change encoded results to RPS
