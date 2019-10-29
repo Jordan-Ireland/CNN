@@ -14,7 +14,7 @@
             <h6 class="heading">Instructions</h6>
             <p>1) Select a picture from the gallery, upload, or take a picture of your hand from behind in a FIST (rock), FLAT (paper), PEACE (scissors)</p>
             <p>2) Press SUBMIT and our AI will pick either Rock, Paper, Scissors.</p>
-            <p>3) Our AI will decifer what you picked based on the picture, and will see if who won!</p>
+            <p>3) Our AI will decipher what you picked based on the picture, and will see if who won!</p>
           </li>
           <li class="one_half">
             <img src="{{url_for('static', filename='images/gallery/examples.png')}}" />
@@ -26,7 +26,7 @@
             <li>
                 <h6 class="heading">Ready! Set! GO!</h6>
                 <form action='/play' method="post" enctype=multipart/form-data style="margin:0 25%;">
-                    <input type="file" id="file" name="file" style="margin:0 25% 25px;" />
+                    <input type="file" id="file" name="file" style="margin:0 25% 25px;" required/>
                     <input class="btn" type="submit" id="submit" style="width:100%;" />
                 </form>
             </li>
